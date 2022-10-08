@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,700&display=swap');
+
+:root {
+    --color1: #202024;
+    --color2: #F19143;
+    --color3: #F55536;
+    --colorBG: #121214;
+    --colorBGHover: #663399;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.2rem;
+}
+body {
+    overflow-x: hidden;
+}
+
+nav {
+    background-color: var(--color1);
+    padding: 10px;
+}
+.searchElements{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    padding: 10px;
+}
+button {
+    width: 60px;
+    height: 62px;
+}
+.searchElements > input, button {
+    padding: 15px;
+    outline: none;
+    border: var(--color3) 4px solid;
+    font-size: 1.05rem;
+}
+.searchElements > input:nth-child(2) {
+    border-radius: 8px 0px 0px 8px;
+    border-right: none;
+}
+.searchElements > input:nth-child(3) {
+    border-right: none;
+    border-left: none;
+}
+.searchElements > button{
+    border-radius: 0px 8px 8px 0px;
+    border-left: none;
+    border-right: none;
+    background-color: var(--color3);
+    font-weight: bold;
+}
+.searchElements:hover input {
+    border: var(--colorBGHover) 4px solid;
+    cursor: pointer;
+    transition: .2s border;
+}
+.searchElements:hover button {
+    border: var(--colorBGHover) 4px solid;
+    background-color: var(--colorBGHover);
+    color: white;
+    cursor: pointer;
+    width: 70px;
+    transition: width .4s ease, color .4s, background-color .4s;
+}
+.searchElements:hover input:nth-child(2) {
+    border-right: none;
+}
+.searchElements:hover input:nth-child(3) {
+    border-right: none;
+    border-left: none;
+}
+.searchElements > h1 {
+    color: white;
+    position: relative;
+    right: 20px;
+}
+main {
+    background-color: var(--colorBG);
+    width: 100%;
+    height: 140vh;
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 35px;
+    overflow-x: hidden;
+}
+#card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 10px;
+    padding: 0px 10px;
+
+    width: 30vh;
+    height: 59vh;
+    
+    overflow: hidden;
+}
+#spanError{
+    color: white;
+    position: absolute;
+    right: 10%;
+    top: 50px;
+}
+#card__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    text-align: center;
+
+    background-color: white;
+    padding: 15px;
+    min-width: 300px;
+    height: 70px;
+    border-radius: 20px 20px 0px 0px;
+}
+#card__info h1{
+    font-size: 1.2rem;
+}
+#card > img {
+    border-radius: 0px 0px 10px 10px; 
+    max-height: 400px;
+    width: 300px;
+    border-top: var(--color3) solid 5px;
+}
+#card:hover #card__info{
+    background-color: var(--colorBGHover);
+    color: white;
+    transition: background-color .4s ease, color .4s;
+}
+#card:hover img {
+    border-top: var(--colorBGHover) solid 5px;
+    transition:  border-top .4 ease-in;
+}
+#card:hover{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    nav {
+        background-color: #5b40a6;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        height: 200px;
+    }
+    .searchElements > input, button {
+        width: 10vh;
+        padding: 5px;
+    }
+    .searchElements > h1 {
+        position: static;
+        text-align: center;
+        top: 0px;
+        padding: 10px;
+    }
+  
+}
