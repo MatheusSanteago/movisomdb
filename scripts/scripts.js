@@ -11,8 +11,6 @@ export function checkStorage() {
     };
 }
 
-
-
 function getData(data){
     let mainPage = document.querySelector('main');
     mainPage.innerHTML += `
@@ -62,13 +60,11 @@ let error = (text) => {
 
 function checkName(arr,res){
     let checked;
-
     for (let i = 0; i < arr.length; i++) {
         if(res.Title == arr[i].Title){
             error("Already searched/Search another");
             checked = true;
         }
     }
-
     return checked;
 }
