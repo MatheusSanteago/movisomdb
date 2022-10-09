@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,700&display=swap');
+
+:root {
+    --color1: #2f2f2f;
+    --color2: #F19143;
+    --color3: #ff3300;
+    --colorBG: #121214;
+    --colorBGHover: #663399;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+body {
+    overflow: hidden;
+}
+nav {
+    background-color: var(--color1);
+    padding: 10px;
+    height: 6vh;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    background-color: var(--colorBG);
+    height: 91vh;
+    padding: 5px;
+    overflow: auto;
+}
+aside {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 15vw;
+    height: 98vh;
+    padding: 15px;
+    background-color: var(--color1);
+    border-right: solid white 4px;
+    color: white;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: auto;
+}
+
+.searchElements{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.searchElements > input, button {
+    padding: 15px;
+    outline: none;
+    border: var(--color3) 4px solid;
+    font-size: 1.05rem;
+}
+.searchElements > input:nth-child(2) {
+    border-radius: 8px 0px 0px 8px;
+    border-right: none;
+}
+.searchElements > input:nth-child(3) {
+    border-right: none;
+    border-left: none;
+}
+.searchElements > button{
+    border-radius: 0px 8px 8px 0px;
+    border-left: none;
+    border-right: none;
+    background-color: var(--color3);
+    font-weight: bold;
+}
+.searchElements:hover input {
+    border: var(--colorBGHover) 4px solid;
+    cursor: pointer;
+    transition: .2s border;
+}
+.searchElements:hover button {
+    border: var(--colorBGHover) 4px solid;
+    background-color: var(--colorBGHover);
+    color: white;
+    cursor: pointer;
+    transition: color .4s, background-color .4s;
+}
+.searchElements:hover input:nth-child(2) {
+    border-right: none;
+}
+.searchElements:hover input:nth-child(3) {
+    border-right: none;
+    border-left: none;
+}
+.searchElements > h1 {
+    color: white;
+    position: relative;
+    right: 20px;
+}
+aside::-webkit-scrollbar{
+    display: none;
+}
+/* CARDS */
+#spanError{
+    color: white;
+    position: absolute;
+    right: 2%;
+    top: 30px;
+}
