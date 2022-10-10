@@ -1,3 +1,4 @@
+import { fa } from "../js/main.js";
 let searched = [];
 export function checkStorage() {
     let searchedLoad = JSON.parse(localStorage.getItem('movies')) || [];
@@ -9,9 +10,9 @@ export function checkStorage() {
         });
     };
 };
+export let aside = document.querySelector('aside');
 function createCard(data){
-    let mainPage = document.querySelector("#searched");
-    mainPage.innerHTML += `
+    aside.innerHTML += `
     <div id="card" class="cards">
         <div class="card__info">
         <h1>${data.Title}<h1>
@@ -25,7 +26,6 @@ function showMovieData(data){
     mainPage.innerHTML += `
     <div class="data">
         <img src="${data.Poster}">
-
         <div class="data__Searched">
             <h1>${data.Title}<h1>
             <h3>Realese day: ${data.Released}<h3><br>
@@ -33,17 +33,17 @@ function showMovieData(data){
             <p>Actors: ${data.Actors}</p>
             <p>Genre: ${data.Genre}</p>
             <p>Writer: ${data.Writer}</p><br>
-            <p>${data.Plot}</p>
-            <div class="data__genre">${data.Genre}</div>
-                <div class="data__ratings">
-                    <p class="metascore" style="${metascoreColors(data.Metascore)}">${data.Metascore}</p>
-                    <p class="imdbRating"> IMDb Rating  <i class="fa-solid fa-star"></i>  ${data.imdbRating}</p>
-                </div>
-            <ul>${returnRatings(data.Ratings)}<ul>
+            <p class="plot">${data.Plot}</p>
         </div>
-    </div>`
+        <div class="data__ratings">
+            <p class="metascore" style="${metascoreColors(data.Metascore)}">${data.Metascore}</p>
+            <p class="imdbRating">IMDb Rating<br><i class="fa-solid fa-star"></i>  ${data.imdbRating}</p>
+        </div>
+        <div class="data__genre">${data.Genre}</div>
+        <ul>${returnRatings(data.Ratings)}<ul>
+    </div>`;
+    createCard(data);
 };
-
 function returnRatings(data){
     let li = '';
     data.forEach((e)=>{
@@ -102,4 +102,29 @@ function metascoreColors(rating){
     } else {
         return 'display:none;'
     }
+}
+export function AsideControl(req){
+    if(req == 0){
+        aside.style.display = 'block';
+        swipAnimation(aside,"-400px","0px");
+        fa[0].style.visibility = 'hidden';
+        fa[1].style.visibility = 'visible';
+    } else {
+        swipAnimation(aside,"0px","-400px");
+        setTimeout(() => {
+            aside.style.display = 'none';
+        },600);
+        fa[0].style.visibility = 'visible';
+        fa[1].style.visibility = 'hidden';
+    }
+
+}
+function swipAnimation(element,start,end) {
+    element.animate([
+        { left: start},
+        { left: end }
+    ],{
+        duration: 700,
+        iterations: 1
+    });
 }
