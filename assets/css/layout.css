@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,700&display=swap');
+
+nav {
+    background-color: var(--color1);
+    padding: 10px;
+    height: 6vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;    
+    gap: 20px;
+}
+nav > h1 {
+    color: white;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    background-color: var(--colorBG);
+    height: 91vh;
+    padding: 5px;
+    overflow: auto;
+}
+aside {
+    display: none;
+    position: absolute;
+    text-align: center;
+    left: 0;
+    top: 0;
+    width: 18vw;
+    height: 98vh;
+    padding: 10px;
+    background-color: var(--color1);
+    color: white;
+    z-index: 1;
+    overflow: auto;
+}
+@media screen and (max-width: 1230px) {
+    body {
+        overflow: scroll;
+    }
+    nav{
+        flex-direction: column;
+        text-align: center;
+        height: 180px;
+    }
+    aside{
+        display: none;
+        width: 300px;
+    }
+    main{
+       align-items: center;
+       height: 100vh;
+    }
+}
+@media screen and (max-width: 426px) {
+    aside {
+        width: 250px;
+        padding: 0;
+        overflow-x: hidden;
+    }
+}

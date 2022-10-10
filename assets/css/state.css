@@ -1,0 +1,29 @@
+.searchElements:hover input {
+    border: var(--colorBGHover) 4px solid;
+    cursor: pointer;
+    transition: .2s border;
+}
+.searchElements:hover button {
+    border: var(--colorBGHover) 4px solid;
+    background-color: var(--colorBGHover);
+    color: white;
+    cursor: pointer;
+    transition: color .4s, background-color .4s;
+}
+.searchElements:hover input:nth-child(1) {
+    border-right: none;
+}
+.searchElements:hover input:nth-child(2) {
+    border-right: none;
+    border-left: none;
+}
+.fa:hover{
+    cursor: pointer;
+    color: var(--color3);
+    transition: color .1s;
+}
+.cards:hover img{
+    opacity: 1;
+    transition: opacity .4s ease;
+    cursor: pointer;
+}
