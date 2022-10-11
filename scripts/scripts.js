@@ -3,14 +3,19 @@ let searched = [];
 const aside = document.querySelector('aside');
 const mainPage = document.querySelector('main');
 const spanNav = document.querySelector('#spanError');
+const searchedLoad = JSON.parse(localStorage.getItem('movies')) || [];
+const colors = {
+    good: 'background-color:#65CC33',
+    medium: 'background-color:#FFCC33',
+    bad: 'background-color:#FE0000',
+    none: 'display:none;'
+}
 
 export function checkStorage() {
-    let searchedLoad = JSON.parse(localStorage.getItem('movies')) || [];
     searched = searchedLoad;
     if(!searchedLoad == ''){    
-        console.log(searchedLoad);
-        searchedLoad.forEach(element => {
-            createCard(element);
+        searchedLoad.forEach(e => {
+            createCard(e);
         });
     };
 };
@@ -50,7 +55,7 @@ function returnRatings(data){
     let li = '';
     data.forEach((e)=>{
         li += `<li>${e.Source} <i class="fa-solid fa-star"></i> ${e.Value}<li>`
-    })
+    });
     return li;
 }
 export function getMovie(data){
@@ -95,13 +100,13 @@ function checkName(arr,res){
 };
 function metascoreColors(rating){
     if(rating >= 61) {
-        return 'background-color:#65CC33'
+        return colors.good;
     } else if (rating >= 40) {
-        return 'background-color:#FFCC33'
+        return colors.medium;
     } else if (rating >= 39) {
-        return 'background-color:#FE0000'
+        return colors.bad
     } else {
-        return 'display:none;'
+        return colors.none;
     }
 }
 export function AsideControl(req){
@@ -118,7 +123,6 @@ export function AsideControl(req){
         fa[0].style.visibility = 'visible';
         fa[1].style.visibility = 'hidden';
     }
-
 }
 function swipAnimation(element,start,end) {
     element.animate([

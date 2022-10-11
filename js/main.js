@@ -6,9 +6,9 @@ const trashIcon = document.querySelector(".fa-trash");
 const btn = document.querySelector("button");
 
 checkStorage();
-const verifyData = () => {
-  const searchTitle = document.querySelectorAll("input")[0].value;
-  const searchYear = document.querySelectorAll("input")[1].value;
+let verifyData = () => {
+  let searchTitle = document.querySelectorAll("input")[0].value;
+  let searchYear = document.querySelectorAll("input")[1].value;
   if (searchTitle) {
     let data = {
       title: searchTitle,
@@ -19,7 +19,6 @@ const verifyData = () => {
     searchYear = "";
   }
 };
-
 
   btn.addEventListener("click", verifyData);
 
