@@ -1,9 +1,14 @@
-import { aside, AsideControl, checkStorage, getMovie  } from "../scripts/scripts.js";
+import { AsideControl, checkStorage, getMovie  } from "../scripts/scripts.js";
+
+export const fa = document.querySelectorAll("i");
+const exitIcon = document.querySelector(".fa-circle-xmark");
+const trashIcon = document.querySelector(".fa-trash");
+const btn = document.querySelector("button");
 
 checkStorage();
-let verifyData = () => {
-  let searchTitle = document.querySelectorAll("input")[0].value;
-  let searchYear = document.querySelectorAll("input")[1].value;
+const verifyData = () => {
+  const searchTitle = document.querySelectorAll("input")[0].value;
+  const searchYear = document.querySelectorAll("input")[1].value;
   if (searchTitle) {
     let data = {
       title: searchTitle,
@@ -15,12 +20,8 @@ let verifyData = () => {
   }
 };
 
-let btn = document.querySelector("button");
-btn.addEventListener("click", verifyData);
 
-export let fa = document.querySelectorAll("i");
-let exitIcon = document.querySelector(".fa-circle-xmark");
-let trashIcon = document.querySelector(".fa-trash");
+  btn.addEventListener("click", verifyData);
 
   fa[0].addEventListener('click', () => {
     AsideControl(0);

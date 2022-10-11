@@ -1,5 +1,9 @@
 import { fa } from "../js/main.js";
 let searched = [];
+const aside = document.querySelector('aside');
+const mainPage = document.querySelector('main');
+const spanNav = document.querySelector('#spanError');
+
 export function checkStorage() {
     let searchedLoad = JSON.parse(localStorage.getItem('movies')) || [];
     searched = searchedLoad;
@@ -10,7 +14,6 @@ export function checkStorage() {
         });
     };
 };
-export let aside = document.querySelector('aside');
 function createCard(data){
     aside.innerHTML += `
     <div id="card" class="cards">
@@ -22,7 +25,6 @@ function createCard(data){
     </div>`
 };
 function showMovieData(data){
-    let mainPage = document.querySelector('main');
     mainPage.innerHTML += `
     <div class="data">
         <img src="${data.Poster}">
@@ -76,7 +78,6 @@ export function getMovie(data){
     });
 };
 let error = (text) => {
-    let spanNav = document.querySelector('#spanError');
     spanNav.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>  ' + text;
     setTimeout(()=> {
         spanNav.innerHTML = '';
